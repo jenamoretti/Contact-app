@@ -1,10 +1,13 @@
 export interface Contact {
-    id: string,
+    id: number,
     firstName: string,
     lastName: string,
-    address: string,
-    number: string,
+    address: string
     email: string,
     image: string,
-    company: string,
+    number: string,
+    company: string
+    isFavorite: boolean
 }
+
+export type NewContact = Omit<Contact,"id">;
