@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Contact } from '../interfaces/contact';
+import { Contact, NewContact } from '../interfaces/contact';
 import { AuthService } from './auth-service';
 
 @Injectable({
@@ -8,9 +8,10 @@ import { AuthService } from './auth-service';
 export class ContactService {
   contacts:Contact[] = []
   authService = inject(AuthService);
+  readonly URL_BASE = "https://agenda-api.somee.com/api/contacts";
  
   async getContacts() {
-    const res = await fetch("https://agenda-api.somee.com/api/contacts",
+    const res = await fetch(this.URL_BASE,
       {
         headers: {
           Authorization: "Bearer "+this.authService.token,
@@ -22,7 +23,7 @@ export class ContactService {
   }
 
   async getContactById(id: string | number){
-    const res = await fetch(`https://agenda-api.somee.com/api/contacts/${id}`,
+    const res = await fetch(this.URL_BASE+"/"+id,
       {
         headers: {
           Authorization: "Bearer "+this.authService.token,
@@ -36,7 +37,7 @@ export class ContactService {
   }
 
   async setFavourite(id:string | number ) {
-    const res = await fetch(`https://agenda-api.somee.com/api/contacts/${id}/favourite/`, 
+    const res = await fetch(this.URL_BASE+"/"+id+"/favorite", 
       {
         method: "POST",
         headers: {
@@ -53,14 +54,26 @@ export class ContactService {
     return true;
   }
   
-  createContact(newContact: Contact){
-    this.contacts.push(newContact);
+  async createContact(nuevoContacto:NewContact) {
+    const res = await fetch(this.URL_BASE, 
+      {
+        method:"POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer "+this.authService.token,
+        },
+        body: JSON.stringify(nuevoContacto)
+      });
+    if(!res.ok) return;
+    const resContact:Contact = await res.json();
+    this.contacts.push(resContact);
+    return resContact;
   }
 
   editContact(){}
 
   async deleteContact(id:string | number){
-    const res = await fetch(`https://agenda-api.somee.com/api/contacts/${id}`, 
+    const res = await fetch(this.URL_BASE+"/"+id, 
       {
         method: "DELETE",
         headers: {

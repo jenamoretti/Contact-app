@@ -1,5 +1,5 @@
 import { Component, inject, input, OnInit } from '@angular/core';
-import { ContactService } from '../../services/contact-service';
+import { ContactService } from '../../services/contacts-service';
 import { Contact } from '../../interfaces/contact';
 import { Router, RouterModule } from '@angular/router';
 
@@ -18,7 +18,6 @@ export class ContactDetailsPage implements OnInit {
 
   async ngOnInit() {
     if(this.idContacto()){
-      // Si encuentro el contacto en el array del servicio lo uso, mientras tanto cargo el contacto del backend por si hubo cambios en el contacto
       this.contacto = this.contactService.contacts.find(contacto => contacto.id.toString() === this.idContacto());
       if(!this.contacto) this.cargandoContacto = true;
       const res = await this.contactService.getContactById(this.idContacto());
