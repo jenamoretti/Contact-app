@@ -1,0 +1,22 @@
+.contact-list-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    gap: 16px;
+    padding: 16px;
+    background-color: #0d0d0d;
+    font-weight: bold;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 8px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #2a2929;
+}
+
+.contact-list app-contact-list-item {
+    display: block;
+    margin-bottom: 8px;
+}

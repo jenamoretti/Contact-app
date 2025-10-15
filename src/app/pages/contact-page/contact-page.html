@@ -1,0 +1,40 @@
+<div class="contact-list-header">
+    <span>Nombre</span>
+    <span>Telefono</span>
+    <span>Email</span>
+    <span>Grupos</span>
+    <span>Acciones</span>
+</div>
+<ul class="contact-list">
+    @for (contact of contactService.contacts; track contact.id) {
+        <app-contact-list-item [contact]="contact"></app-contact-list-item>
+    }
+</ul>
+
+<form (ngSubmit)="createContact(newContactForm.value)" #newContactForm="ngForm">
+    <div>
+        <label for="firstName">Nombre</label>
+        <input id="firstName" name="firstName" type="text" ngModel required="true" minlength="3" maxlength="20">
+    </div>
+    <div>
+        <label for="lastName">Apellido</label>
+        <input id="lastName" name="lastName" type="text" ngModel maxlength="20">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="text" ngModel required="true" minlength="5" maxlength="30">
+    </div>
+    <div>
+        <label for="number">Telefono</label>
+        <input id="number" name="number" type="text" ngModel maxlength="30">
+    </div>
+    <div>
+        <label for="address">Direccion</label>
+        <input id="address" name="address" type="text" ngModel>
+    </div>
+    <div>
+        <label for="company">Compania</label>
+        <input id="company" name="company" type="text" ngModel>
+    </div>
+    <button>Enviar</button>
+</form>
