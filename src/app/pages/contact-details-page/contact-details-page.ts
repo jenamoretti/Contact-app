@@ -1,7 +1,7 @@
-import { Component, inject, input, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ContactService } from '../../services/contacts-service';
 import { Contact } from '../../interfaces/contact';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-details-page',
@@ -10,33 +10,41 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './contact-details-page.scss'
 })
 export class ContactDetailsPage implements OnInit {
-  idContacto = input.required<string>();
+  idContacto: string | null = null;
   readonly contactService = inject(ContactService);
   contacto: Contact | undefined;
   cargandoContacto = false;
   router = inject(Router);
+  route = inject(ActivatedRoute);
 
   async ngOnInit() {
-    if(this.idContacto()){
-      this.contacto = this.contactService.contacts.find(contacto => contacto.id.toString() === this.idContacto());
-      if(!this.contacto) this.cargandoContacto = true;
-      const res = await this.contactService.getContactById(this.idContacto());
-      if(res) this.contacto = res;
+    // Obtenemos el parámetro desde la URL
+    this.idContacto = this.route.snapshot.paramMap.get('id');
+
+    if (this.idContacto) {
+      this.contacto = this.contactService.contacts.find(
+        contacto => contacto.id.toString() === this.idContacto
+      );
+
+      if (!this.contacto) this.cargandoContacto = true;
+
+      const res = await this.contactService.getContactById(Number(this.idContacto));
+      if (res) this.contacto = res;
       this.cargandoContacto = false;
     }
   }
 
-  async toggleFavorite(){
-    if(this.contacto){
+  async toggleFavorite() {
+    if (this.contacto) {
       const res = await this.contactService.setFavourite(this.contacto.id);
-      if(res) this.contacto.isFavorite = !this.contacto.isFavorite;
+      if (res) this.contacto.isFavorite = !this.contacto.isFavorite;
     }
   }
 
-  async deleteContact(){
-    if(this.contacto){
+  async deleteContact() {
+    if (this.contacto) {
       const res = await this.contactService.deleteContact(this.contacto.id);
-      if(res) this.router.navigate(['/']);
+      if (res) this.router.navigate(['/contacts']);
     }
   }
 }

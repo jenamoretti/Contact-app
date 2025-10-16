@@ -70,7 +70,26 @@ export class ContactService {
     return resContact;
   }
 
-  editContact(){}
+  async editContact(contactoEditado:Contact) {
+    const res = await fetch(this.URL_BASE+"/"+contactoEditado.id, 
+      {
+        method:"PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer "+this.authService.token,
+        },
+        body: JSON.stringify(contactoEditado)
+      });
+    if(!res.ok) return;
+    
+    this.contacts = this.contacts.map(contact => {
+      if(contact.id === contactoEditado.id) {
+        return contactoEditado;
+      };
+      return contact;
+    });
+    return contactoEditado;
+  }
 
   async deleteContact(id:string | number){
     const res = await fetch(this.URL_BASE+"/"+id, 
