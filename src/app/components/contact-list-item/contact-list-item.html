@@ -1,6 +1,18 @@
-<li> 
-    <span>{{ contact().firstName }}</span>
-    <span>{{ contact().lastName }}</span>
-    <span>{{ contact().number }}</span>
-    <span>{{ contact().email }}</span>
+<li class="contact-row">
+  <span class="col-name">{{ contact.firstName }}</span>
+  <span class="col-name">{{ contact.lastName }}</span>
+  <span class="col-number">{{ contact.number }}</span>
+  <span class="col-email">{{ contact.email }}</span>
+  <span class="col-address">{{ contact.address }}</span>
+  <span class="col-company">{{ contact.company }}</span>
+  <span class="col-favorite">{{ contact.isFavorite ? '⭐' : '' }}</span>
+  
+  <span class="col-actions">
+    <a [routerLink]="['/contacts', contact.id, 'edit']" 
+       (click)="$event.stopPropagation()">✏️</a>
+        <button type="button"
+          (click)="$event.preventDefault(); $event.stopPropagation(); deleteContact()">
+            Borrar
+        </button>
+  </span>
 </li>

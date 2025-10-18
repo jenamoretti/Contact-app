@@ -1,22 +1,85 @@
-.contact-list-header {
+.contact-list-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #1c1c1c;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* HEADER */
+  .contact-list-header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    grid-template-columns: repeat(7, 1fr);
     gap: 16px;
-    padding: 16px;
+    padding: 12px 16px;
     background-color: #0d0d0d;
+    color: #fff;
     font-weight: bold;
-    border-bottom: 2px solid #e0e0e0;
-    margin-bottom: 8px;
-}
-
-.contact-list {
+    border-bottom: 2px solid #333;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  /* LISTA */
+  .contact-list {
     list-style: none;
     padding: 0;
     margin: 0;
     background-color: #2a2929;
-}
-
-.contact-list app-contact-list-item {
-    display: block;
-    margin-bottom: 8px;
-}
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .contact-list li {
+    border-bottom: 1px solid #3b3b3b;
+  }
+  
+  /* FILA DE CONTACTO */
+  .contact-list-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+  }
+  
+  /* ENLACE */
+  .contact-link {
+    display: contents; /* 🔥 Esto hace que el enlace no rompa el grid */
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  /* ESTILOS PARA EL COMPONENTE INTERNO */
+  .contact-link app-contact-list-item {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+  }
+  
+  .contact-list-row:hover {
+    background-color: #3a3a3a;
+  }
+  
+  /* BOTÓN AGREGAR */
+  .add-contact-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    margin: 24px auto 0;
+    font-size: 24px;
+    background-color: #2379dc;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  
+  .add-contact-btn:hover {
+    background-color: #0078ff;
+    transform: scale(1.1);
+  }

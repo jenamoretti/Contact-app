@@ -1,0 +1,13 @@
+/* Hacer que el li interno se comporte como parte del grid padre */
+app-contact-list-item {
+    display: contents;
+  }
+  
+  /* Opcional: si querés controlar directamente el li */
+  .contact-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Igual que el header */
+    gap: 16px;
+    align-items: center;
+  }
+  
