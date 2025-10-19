@@ -6,11 +6,10 @@
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   }
-  
-  /* HEADER */
+
   .contact-list-header {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     gap: 16px;
     padding: 12px 16px;
     background-color: #0d0d0d;
@@ -19,8 +18,7 @@
     border-bottom: 2px solid #333;
     border-radius: 8px 8px 0 0;
   }
-  
-  /* LISTA */
+
   .contact-list {
     list-style: none;
     padding: 0;
@@ -32,38 +30,27 @@
   .contact-list li {
     border-bottom: 1px solid #3b3b3b;
   }
-  
-  /* FILA DE CONTACTO */
-  .contact-list-row {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    align-items: center;
-    gap: 16px;
-    padding: 12px 16px;
-  }
-  
-  /* ENLACE */
+
   .contact-link {
-    display: contents; /* 🔥 Esto hace que el enlace no rompa el grid */
+    display: contents;
     color: #f0f0f0;
     text-decoration: none;
     transition: background-color 0.2s;
   }
   
-  /* ESTILOS PARA EL COMPONENTE INTERNO */
   .contact-link app-contact-list-item {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     gap: 16px;
     width: 100%;
     align-items: center;
+    padding: 12px 16px;
   }
   
   .contact-list-row:hover {
     background-color: #3a3a3a;
   }
-  
-  /* BOTÓN AGREGAR */
+
   .add-contact-btn {
     display: flex;
     justify-content: center;
@@ -72,7 +59,7 @@
     height: 48px;
     margin: 24px auto 0;
     font-size: 24px;
-    background-color: #2379dc;
+    background-color: #2379dc;  
     color: white;
     border-radius: 50%;
     text-decoration: none;

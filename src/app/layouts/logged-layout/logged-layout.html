@@ -1,8 +1,22 @@
-<div>
+<!-- <div>
   <nav>
       <a routerLink="/">Contactos</a>
       <a routerLink="/groups">Grupos</a>
       <button (click)="openLogoutModal()">Log out</button>
   </nav>
 </div>
-<router-outlet/>
+<router-outlet/> -->
+<div class="layout">
+  <nav class="sidebar">
+    <h2 class="logo">Agenda</h2>
+    <ul>
+      <li><a routerLink="/">Contactos</a></li>
+      <li><a routerLink="/groups" routerLinkActive="active">Grupos</a></li>
+    </ul>
+    <button class="logout-btn" (click)="openLogoutModal()">Cerrar sesión</button>
+  </nav>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

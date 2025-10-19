@@ -1,11 +1,127 @@
-  form {
-    width: 500px;
-    padding: 40px;
-    background: #1a1a1a;
-    border-radius: 14px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+body {
+  background: linear-gradient(135deg, #141e30, #243b55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+form {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px 35px;
+  background: linear-gradient(180deg, #1a1a1a, #111);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #fff;
+  margin: auto;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #00c9ff;
+}
+
+.form-group {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  color: #ccc;
+  font-weight: 500;
+}
+
+input {
+  padding: 10px 12px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #222;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+input::placeholder {
+  color: #777;
+}
+
+input:focus {
+  border-color: #00c9ff;
+  background-color: #1e1e1e;
+}
+
+.btn {
+  width: 100%;
+  background: linear-gradient(90deg, #00c9ff, #00b0e0);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn:hover:enabled {
+  background: linear-gradient(90deg, #00b0e0, #00eaff);
+  transform: scale(1.02);
+}
+
+.btn:disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.register-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.register-text a {
+  margin-top: 10px;
+  color: #00c9ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}

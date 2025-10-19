@@ -1,0 +1,110 @@
+.contact-detail-card {
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .loading,
+  .not-found {
+    text-align: center;
+    color: #aaa;
+    font-size: 18px;
+  }
+  
+  .contact-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+  }
+  
+  .contact-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00eaff;
+  }
+  
+  .contact-company {
+    font-size: 14px;
+    color: #bbb;
+  }
+  
+  .contact-info p {
+    margin: 6px 0;
+    font-size: 15px;
+  }
+  
+  .contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .fav-btn {
+    background: #2a2a2a;
+    border: 1px solid #00eaff;
+    color: #00eaff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+  }
+  
+  .fav-btn.active {
+    background: #00eaff;
+    color: #1c1c1c;
+    font-weight: 600;
+  }
+  
+  .fav-btn:hover {
+    background-color: #00eaff;
+    color: #1c1c1c;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    flex: 1;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .edit-btn {
+    background-color: #2379dc;
+    color: #fff;
+  }
+  
+  .edit-btn:hover {
+    background-color: #006cff;
+  }
+  
+  .delete-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+  }
+  
+  .delete-btn:hover {
+    background-color: #ff6b6b;
+  }
+  

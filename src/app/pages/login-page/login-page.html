@@ -1,34 +1,63 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+</head> -->
 
-<div id="container" class="card">
-    <h1>Iniciar sesión</h1>
-    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-    <div>
+<div class="login-card">
+  <h1>Iniciar sesión</h1>
+
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    
+    <div class="form-group">
       <label for="email">Correo electrónico</label>
-      <input id="email" name="email" type="email" id="email" ngModel #email="ngModel" required="true" autocomplete="email">
-      @if (email.invalid && !email.pristine) {
-        <p class="error">Debe colocar un correo electrónico.</p>
-      } 
+      <input
+        id="email"
+        name="email"
+        type="email"
+        ngModel
+        #email="ngModel"
+        required
+        autocomplete="email"
+        placeholder="ejemplo@correo.com"
+      />
+      @if (email.invalid && email.touched) {
+        <p class="error">Debe colocar un correo electrónico válido.</p>
+      }
     </div>
-    <div>
+
+    <div class="form-group">
       <label for="password">Contraseña</label>
-      <input id="password" name="password" type="password" ngModel #password="ngModel" minlength="4" autocomplete="current-password">
-      @if (password.invalid && !password.pristine) {
+      <input
+        id="password"
+        name="password"
+        type="password"
+        ngModel
+        #password="ngModel"
+        minlength="4"
+        required
+        autocomplete="current-password"
+        placeholder="••••••"
+      />
+      @if (password.invalid && password.touched) {
         <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
-      } 
+      }
     </div>
-    <button [disabled]="isLoading || loginForm.invalid">Iniciar sesión</button>
+
+    <button class="btn" [disabled]="isLoading || loginForm.invalid">
+      {{ isLoading ? 'Cargando...' : 'Iniciar sesión' }}
+    </button>
+
     @if (errorLogin) {
       <p class="error">Datos de sesión incorrectos, intente nuevamente.</p>
-    } 
-    <p>No tenés cuenta? <a routerLink="/register">Registrate</a></p>
+    }
+
+    <p class="register-text">
+      ¿No tenés cuenta? <a routerLink="/register">Registrate</a>
+    </p>
   </form>
-  
-  </div>
-</html>
+</div>
+
+<!-- </html> -->  

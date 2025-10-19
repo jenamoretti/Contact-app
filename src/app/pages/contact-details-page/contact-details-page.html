@@ -1,19 +1,38 @@
-@if(cargandoContacto){
-    <p>Cargando contacto...</p>
-  } @else if(!contacto) {
-    <p>No se encontró el contacto</p>
+<div class="contact-detail-card">
+  @if (cargandoContacto) {
+    <p class="loading">Cargando contacto...</p>
+  } @else if (!contacto) {
+    <p class="not-found">No se encontró el contacto</p>
   } @else {
-    <h1>{{contacto!.firstName}} {{contacto!.lastName}}</h1>
-    <p>Email: {{contacto.email}}</p>
-    <p>Teléfono: {{contacto.number}}</p>
-  @if (contacto.isFavorite) {
-    <p>⭐</p>
-    <button (click)="toggleFavorite()">Desmarcar favorito</button>
-  } @else {
-    <button (click)="toggleFavorite()">Marcar como favorito</button>
+    <div class="contact-header">
+      <img
+        src="{{contacto.image}}"
+        alt="Foto"
+        class="contact-avatar"
+      />
+      <div>
+        <h1>{{ contacto.firstName }} {{ contacto.lastName }}</h1>
+        <p class="contact-company">{{ contacto.company || 'Sin compañía' }}</p>
+      </div>
+    </div>
+
+    <div class="contact-info">
+      <p><strong>Email:</strong> {{ contacto.email || 'No especificado' }}</p>
+      <p><strong>Teléfono:</strong> {{ contacto.number }}</p>
+      <p><strong>Dirección:</strong> {{ contacto.address || 'No especificada' }}</p>
+    </div>
+
+    <div class="contact-actions">
+      <button 
+        class="fav-btn" 
+        (click)="toggleFavorite()" 
+        [class.active]="contacto.isFavorite">
+        {{ contacto.isFavorite ? '★ Favorito' : '☆ Marcar como favorito' }}
+      </button>
+
+      <div class="action-buttons">
+        <a [routerLink]="['/contacts', idContacto, 'edit']" class="edit-btn">Editar</a>
+      </div>
+    </div>
   }
-    <p>
-      <a [routerLink]="['/contacts',idContacto,'edit']">Editar</a>
-    </p>
-    <button (click)="deleteContact()">Eliminar</button>
-  }
+</div>

@@ -5,14 +5,22 @@
   <span class="col-email">{{ contact.email }}</span>
   <span class="col-address">{{ contact.address }}</span>
   <span class="col-company">{{ contact.company }}</span>
-  <span class="col-favorite">{{ contact.isFavorite ? '⭐' : '' }}</span>
+  <span class="col-favorite">{{ contact.isFavorite ? 'Si' : 'No' }}</span>
   
   <span class="col-actions">
-    <a [routerLink]="['/contacts', contact.id, 'edit']" 
-       (click)="$event.stopPropagation()">✏️</a>
-        <button type="button"
-          (click)="$event.preventDefault(); $event.stopPropagation(); deleteContact()">
-            Borrar
-        </button>
+    <div class="actions-container">
+      <a class="btn-edit" 
+         [routerLink]="['/contacts', contact.id, 'edit']" 
+         (click)="$event.stopPropagation()"
+         title="Editar contacto">
+        <span class="icon">✏️</span>
+      </a>
+      <button class="btn-delete" 
+              type="button"
+              (click)="$event.preventDefault(); $event.stopPropagation(); deleteContact()"
+              title="Eliminar contacto">
+        <span class="icon">🗑️</span>
+      </button>
+    </div>
   </span>
 </li>

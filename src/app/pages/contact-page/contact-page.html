@@ -1,23 +1,22 @@
 <div class="contact-list-container">
-    <div class="contact-list-header">
-      <span>Nombre</span>
-      <span>Apellido</span>
-      <span>Teléfono</span>
-      <span>Email</span>
-      <span>Dirección</span>
-      <span>Compañía</span>
-      <span>Favorito</span>
-    </div>
-  
-    <ul class="contact-list">
-      @for (contactoIndividual of contactsService.contacts; track contactoIndividual.id) {
-        <li class="contact-list-row">
-          <a [routerLink]="['/contact', contactoIndividual.id]" class="contact-link">
-            <app-contact-list-item [contact]="contactoIndividual"></app-contact-list-item>
-          </a>
-        </li>
-      }
-    </ul>
-  
-    <a routerLink="/contacts/new" class="add-contact-btn">+</a>
+  <div class="contact-list-header">
+    <span>Nombre</span>
+    <span>Apellido</span>
+    <span>Teléfono</span>
+    <span>Email</span>
+    <span>Dirección</span>
+    <span>Compañía</span>
+    <span>Favorito</span>
+    <span>Acciones</span>
   </div>
+
+  <ul class="contact-list">
+    @for (contactoIndividual of contactsService.contacts; track contactoIndividual.id) {
+      <li class="contact-list-row">
+        <app-contact-list-item [contact]="contactoIndividual"></app-contact-list-item>
+      </li>
+    }
+  </ul>
+
+  <a routerLink="/contacts/new" class="add-contact-btn" title="Agregar contacto">+</a>
+</div>
