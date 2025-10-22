@@ -1,4 +1,4 @@
-<li class="contact-row">
+<li class="contact-row" [routerLink]="['/contact', contact.id]" (click)="navigateToDetails($event)">
   <span class="col-name">{{ contact.firstName }}</span>
   <span class="col-name">{{ contact.lastName }}</span>
   <span class="col-number">{{ contact.number }}</span>

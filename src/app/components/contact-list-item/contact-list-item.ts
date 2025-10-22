@@ -19,6 +19,12 @@ export class ContactListItem {
     this.router.navigate(['/contacts/edit', this.contact.id]);
   }
 
+  navigateToDetails(event: Event) {
+    if (!(event.target as HTMLElement).closest('.actions-container')) {
+      this.router.navigate(['/contact', this.contact.id]);
+    }
+  }
+
   async deleteContact() {
     const result = await Swal.fire({
       title: `¿Eliminar a ${this.contact.firstName}?`,

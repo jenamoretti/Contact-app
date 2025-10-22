@@ -2,13 +2,15 @@
   display: flex;
   height: 100vh;
   background-color: #1a1a1a;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .sidebar {
-  width: 250px;
+  width: 200px;
   background: linear-gradient(180deg, #111 0%, #1c1c1c 100%);
   color: #fff;
-  padding: 30px 20px;
+  padding: 20px 15px;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -21,13 +23,13 @@
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin: 30px 0;
+  margin: 20px 0;
   flex: 1; 
   overflow-y: auto; 
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   color: #00c9ff;
   text-align: center;
@@ -35,22 +37,21 @@
 }
 
 .sidebar li {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .sidebar a {
   text-decoration: none;
   color: #b8b8b8;
-  font-size: 16px;
-  padding: 10px 15px;
-  border-radius: 8px;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 6px;
   display: block;
   transition: all 0.3s ease;
 }
 
 .sidebar a:hover,
 .sidebar a.active {
-  background-color: #222;
   color: #00eaff;
 }
 
@@ -58,10 +59,11 @@
   background-color: #ff4d4d;
   color: #fff;
   border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
+  font-size: 13px;
   transition: background-color 0.3s ease;
   margin-top: auto;
 }
@@ -72,7 +74,8 @@
 
 main {
   flex: 1;
-  padding: 30px;
+  padding: 20px;
   overflow-y: auto;
-  width: 100vw;
+  width: calc(100vw - 200px);
+  max-width: 1200px;
 }
